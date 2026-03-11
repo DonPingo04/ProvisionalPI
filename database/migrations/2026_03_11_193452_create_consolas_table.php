@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('library', function (Blueprint $table) {
-            $table->id();
+        Schema::create('consolas', function (Blueprint $table) {
+            $table->id('id_consola');
+            $table->string('consola_nombre', 150);
+            $table->string('fabricante', 60);
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('library');
+        Schema::dropIfExists('consolas');
     }
 };

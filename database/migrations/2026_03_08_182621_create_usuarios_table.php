@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('client', function (Blueprint $table) {
-            $table->primary('person_id');
-            $table->foreign('person_id')->references('id')->on('person')->onDelete('cascade');
+        Schema::create('usuarios', function (Blueprint $table) {
+            $table->id();
+            $table->string('foto_perfil')->nullable();
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('client');
+        Schema::dropIfExists('usuarios');
     }
 };

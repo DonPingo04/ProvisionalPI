@@ -11,8 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('videogame_console', function (Blueprint $table) {
+        Schema::create('detalle__pedidos', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('videojuego')
+                ->constrained('videojuego', 'id_videojuego')
+                ->onDelete('cascade');
+            $table->foreignId('pedido')
+                ->constrained('pedido', 'id_pedido')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -22,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('videogame_console');
+        Schema::dropIfExists('detalle__pedidos');
     }
 };
